@@ -1,0 +1,31 @@
+{
+    "name": "todo-server",
+    "version": "1.0.0",
+    "description": "Fastify + Drizzle Todo Backend",
+    "main": "src/index.ts",
+    "scripts": {
+        "dev": "tsx watch src/index.ts",
+        "build": "npm run gen:types && tsc",
+        "start": "node dist/index.js",
+        "db:generate": "drizzle-kit generate:pg",
+        "db:migrate": "tsx src/db/migrate.ts",
+        "gen:types": "openapi-typescript ../api-spec/openapi.yaml -o generated/api.ts"
+    },
+    "dependencies": {
+        "@fastify/cors": "^9.0.1",
+        "dotenv": "^16.4.5",
+        "drizzle-orm": "^0.30.0",
+        "fastify": "^4.26.2",
+        "fastify-type-provider-zod": "^1.1.9",
+        "pg": "^8.11.3",
+        "zod": "^3.22.4"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.24",
+        "@types/pg": "^8.11.2",
+        "drizzle-kit": "^0.20.14",
+        "openapi-typescript": "^7.10.1",
+        "tsx": "^4.7.1",
+        "typescript": "^5.3.3"
+    }
+}
